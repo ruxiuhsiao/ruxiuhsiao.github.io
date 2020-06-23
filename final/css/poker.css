@@ -6,13 +6,6 @@
     border-radius: 20em;
 }
 
-.ellipse{
-    width:1000px;
-    height:200px;
-    background:#aaa;
-    -webkit-clip-path:ellipse(25% 50% at 50% 50%);
-  }
-
 h1{
     font-size: 250%;
     letter-spacing: 0.3em;
@@ -25,12 +18,28 @@ p{
     text-align: center;
 }
 
+.p2{
+    font-family: cursive;
+    font-size: 1em;
+    text-align: center;
+}
+
+#button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .block{
     width:400px;
 }
 
 .block2{
     width:80px;
+}
+
+.rowblock{
+    height:20px;
 }
 
 .player{
