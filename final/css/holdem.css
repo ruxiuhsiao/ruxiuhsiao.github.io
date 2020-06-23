@@ -1,0 +1,6 @@
+img.poker:hover {
+    box-shadow: 2px 2px 12px #606060;
+    cursor: pointer;
+    transform: translate(-10px, -10px);
+    transition-duration: 0.5s;
+}
