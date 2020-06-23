@@ -7,6 +7,7 @@ var newPoker = (r, i) => {
     $img.attr('data-back', true)
     $img.attr('id', i + '')
 
+
     // 當img被按到的時候
     $img.on('click', (event) => {
         let $poker = $(event.target)
@@ -26,13 +27,22 @@ var newPoker = (r, i) => {
     })
 
     // 產生 div 的 jQuery 物件在變數 $div
-    $div = $('<div>').addClass('col').addClass('poker')
-
+    $div = $('<div>').addClass('col').addClass('poker').attr('id', 'd1')
     // 將 $img 插入到 $div 內
     $div.append($img)
 
     // 將 $div 插入到網頁 id=data 的html element 裡面
     $('#data1').append($div)
+
+    /*
+    let $button = $('<button>').attr('id', 'bt' + i)
+    $button.attr('type', 'button').attr('class', 'btn-primary').attr('class', 'btn')
+    //< button id = "close1" type = "button" class="btn btn-primary" > 蓋牌</button >
+
+    $div = $('<div>').addClass('col').addClass('poker2').attr('id', 'd2')
+    $div.append($button)
+    $('#data11').append($button)
+    */
 }
 
 $(() => {
@@ -73,7 +83,8 @@ $(() => {
         for (let i = 0; i < 5; i++) {
             //var temp = '#' + i
             // 產生 div 的 jQuery 物件在變數 $div
-            $('#' + i).attr('src', './poker/pic' + $('#' + i).attr("data-poker") + '.png')
+            var temp = $('#' + i).attr("data-poker")
+            $('#' + i).attr('src', './poker/pic' + temp + '.png')
             $('#' + i).attr('data-back', false)
             //$div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
@@ -121,6 +132,7 @@ var newPoker2 = (r, i) => {
     $img.on('click', (event) => {
         let $poker2 = $(event.target)
 
+
         // 判斷目前牌是蓋著還是翻開
         if ($poker2.attr('data-back') == 'true') {
             // 目前牌是蓋著，要執行翻牌動作
@@ -133,6 +145,7 @@ var newPoker2 = (r, i) => {
             $poker2.attr('src', './poker/back.png')
             $poker2.attr('data-back', true)
         }
+
     })
 
     // 產生 div 的 jQuery 物件在變數 $div
@@ -212,4 +225,35 @@ $(() => {
             //$('#data1').append($div)
         }
     })
+})
+
+//出牌
+$(() => {
+    $img.on('dblclick', (event) => {
+        let $poker = $(event.target)
+            //$('#out2').on('click', () => {
+            // 洗空桌面
+            //$('#data1').empty();
+            //let temp = $poker.attr("data-poker")
+            ('#table').append($poker)
+        //})
+        /*
+        // 判斷目前牌是蓋著還是翻
+        if ($poker.attr('data-back') == 'true') {
+            // 目前牌是蓋著，要執行翻牌動作
+            let r = $poker.attr('data-poker')
+            r = Number(r)
+            $poker.attr('src', './poker/pic' + (+ 1) + '.png')
+            $poker.attr('data-back', false)
+        } else {
+            // 目前牌是打開的，要執行蓋牌的動作
+            $poker.attr('src', './poker/back.png')
+            $poker.attr('data-back', true)
+        }
+        let $poker2 = $(event.target)
+            ('#table').append($poker)
+            */
+    })
+
+
 })
