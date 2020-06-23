@@ -1,6 +1,54 @@
+.container{
+    background-color: antiquewhite;
+}
+#titleblock {
+    background-color:rgba(77, 185, 228, 0.844);
+    border-radius: 20em;
+}
+
+.ellipse{
+    width:1000px;
+    height:200px;
+    background:#aaa;
+    -webkit-clip-path:ellipse(25% 50% at 50% 50%);
+  }
+
+h1{
+    font-size: 250%;
+    letter-spacing: 0.3em;
+    text-align: center;
+}
+
+p{
+    font-family: cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+.block{
+    width:400px;
+}
+
+.block2{
+    width:80px;
+}
+
+.player{
+    background-color:rgba(15, 185, 228, 0.844);
+    /*
+    width:400px;
+    */
+    border-radius: 20em;
+}
+
 #data {
     margin-bottom: 50px;
-    margin-top: 20px;
+    margin-top: 20px; 
+}
+
+#data2 {
+    margin-bottom: 50px;
+    margin-top: 20px; 
 }
 
 div.poker {
@@ -9,4 +57,11 @@ div.poker {
 
 .poker {
     text-align: center;
+}
+
+footer {
+    background: rgb(151, 224, 231, 0.712); 
+    color: rgb(119, 117, 117);
+    text-align: center;
+    margin: 0;
 }
