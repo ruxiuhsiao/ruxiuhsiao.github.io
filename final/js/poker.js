@@ -17,7 +17,7 @@ var newPoker = (r, i) => {
             // 目前牌是蓋著，要執行翻牌動作
             let r = $poker.attr('data-poker')
             r = Number(r)
-            $poker.attr('src', './poker/pic' + (+ 1) + '.png')
+            $poker.attr('src', './poker/pic' + (r + 1) + '.png')
             $poker.attr('data-back', false)
         } else {
             // 目前牌是打開的，要執行蓋牌的動作
