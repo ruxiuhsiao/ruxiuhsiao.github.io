@@ -74,7 +74,8 @@ $(() => {
             //var temp = '#' + i
             // 產生 div 的 jQuery 物件在變數 $div
             $('#' + i).attr('src', './poker/pic' + $('#' + i).attr("data-poker") + '.png')
-            $div = $('<div>').addClass('col').addClass('poker')
+            $('#' + i).attr('data-back', false)
+            //$div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             //$div.append($('#' + i))
             // 將 $div 插入到網頁 id=data 的html element 裡面
@@ -93,7 +94,7 @@ $(() => {
             //var temp = '#' + i
             // 產生 div 的 jQuery 物件在變數 $div
             $('#' + i).attr('src', './poker/back.png')
-            $('#' + i).attr('data-back', false)
+            $('#' + i).attr('data-back', true)
             //$('#' + i).attr('src', './poker/pic' + $('#' + i).attr("data-poker") + '.png')
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
@@ -109,11 +110,12 @@ $(() => {
 //var poker2_g = new2();
 
 // 產生撲克牌在網頁上
-var newPoker2 = (r) => {
+var newPoker2 = (r, i) => {
     // 產生 img 的 jQuery 物件在變數 $img
     let $img = $('<img>').attr('src', './poker/back.png')
     $img.attr('data-poker', r)
     $img.attr('data-back', true)
+    $img.attr('id', i + '')
 
     // 當img被按到的時候
     $img.on('click', (event) => {
@@ -166,7 +168,48 @@ $(() => {
 
         // 發牌
         for (let i = 0; i < 5; i++) {
-            newPoker2(poker2[i])
+            newPoker2(poker2[i], i + 5)
+        }
+    })
+})
+
+//開牌
+$(() => {
+    $('#open2').on('click', () => {
+        // 洗空桌面
+        //$('#data1').empty();
+
+        for (let i = 5; i < 10; i++) {
+            //var temp = '#' + i
+            // 產生 div 的 jQuery 物件在變數 $div
+            $('#' + i).attr('src', './poker/pic' + $('#' + i).attr("data-poker") + '.png')
+            $('#' + i).attr('data-back', false)
+            //$div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            //$div.append($('#' + i))
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            //$('#data1').append($div)
+        }
+    })
+})
+
+//蓋牌
+$(() => {
+    $('#close2').on('click', () => {
+        // 洗空桌面
+        //$('#data1').empty();
+
+        for (let i = 5; i < 10; i++) {
+            //var temp = '#' + i
+            // 產生 div 的 jQuery 物件在變數 $div
+            $('#' + i).attr('src', './poker/back.png')
+            $('#' + i).attr('data-back', true)
+            //$('#' + i).attr('src', './poker/pic' + $('#' + i).attr("data-poker") + '.png')
+            $div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            //$div.append($('#' + i))
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            //$('#data1').append($div)
         }
     })
 })
