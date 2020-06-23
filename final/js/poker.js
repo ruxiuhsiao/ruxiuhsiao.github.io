@@ -107,6 +107,27 @@ $(() => {
     })
 })
 
+////////////
+
+//出牌
+$(() => {
+    $('#11').on('click', () => {
+        let temp = $('#11').attr('id') - 11
+        let $img = $('<img>').attr('src', './poker/back.png')
+
+        $img.attr('src', './poker/pic' + poker1_g[0] + '.png')
+
+        $div = $('<div>').addClass('col').addClass('poker')
+
+        // 將 $img 插入到 $div 內
+        $div.append($img)
+
+        // 將 $div 插入到網頁 id=data 的html element 裡面
+        $('#table').append($img)
+    })
+})
+
+
 /////player2
 
 var poker2_g = []
