@@ -143,10 +143,10 @@ $(() => {
 
 /////player2
 
-var poker2_g = new2();
+//var poker2_g = new2();
 
 // 產生撲克牌在網頁上
-var newPoker = (r) => {
+var newPoker2 = (r) => {
     // 產生 img 的 jQuery 物件在變數 $img
     let $img = $('<img>').attr('src', './poker/back.png')
     $img.attr('data-poker', r)
@@ -154,19 +154,19 @@ var newPoker = (r) => {
 
     // 當img被按到的時候
     $img.on('click', (event) => {
-        let $poker = $(event.target)
+        let $poker2 = $(event.target)
 
         // 判斷目前牌是蓋著還是翻開
-        if ($poker.attr('data-back') == 'true') {
+        if ($poker2.attr('data-back') == 'true') {
             // 目前牌是蓋著，要執行翻牌動作
-            let r = $poker.attr('data-poker')
+            let r = $poker2.attr('data-poker')
             r = Number(r)
-            $poker.attr('src', './poker/pic' + (r + 1) + '.png')
-            $poker.attr('data-back', false)
+            $poker2.attr('src', './poker/pic' + (r + 1) + '.png')
+            $poker2.attr('data-back', false)
         } else {
             // 目前牌是打開的，要執行蓋牌的動作
-            $poker.attr('src', './poker/back.png')
-            $poker.attr('data-back', true)
+            $poker2.attr('src', './poker/back.png')
+            $poker2.attr('data-back', true)
         }
     })
 
@@ -187,23 +187,23 @@ $(() => {
         $('#data2').empty();
 
         // 產生新撲克牌
-        var poker = []
+        var poker2 = []
         for (let i = 0; i < 52; i++) {
-            poker.push(i)
+            poker2.push(i)
         }
 
         // 洗牌
         for (let i = 0; i < 100; i++) {
             // 隨機抽第 r 張，和第一張交換
             let r = RandomInt(0, 51)
-            let temp = poker[r]
-            poker[r] = poker[0]
-            poker[0] = temp
+            let temp = poker2[r]
+            poker2[r] = poker2[0]
+            poker2[0] = temp
         }
 
         // 發牌
         for (let i = 0; i < 5; i++) {
-            newPoker(poker[i])
+            newPoker2(poker2[i])
         }
     })
 })
