@@ -113,6 +113,11 @@ p{
     box-shadow: inset -2px -2px 4px #595959;
 }
 
+.rule{
+    text-align: left;
+    line-height: 28px
+}
+
 /* title background */
 #titleblock {
     border-radius: 20em;
