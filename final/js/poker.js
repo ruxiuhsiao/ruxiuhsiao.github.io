@@ -16,7 +16,6 @@ var start = 0; //0:start; 1:stop
 //發牌
 $(() => {
     $('#main1').on('click', () => {
-        //console.log("發牌")
         // 洗空桌面
         $('#data1').empty();
         $('#data2').empty();
@@ -69,7 +68,6 @@ $(() => {
         //claer totalcount
         totalCount = 0
         $('#count').empty();
-        //console.log("totalCount:" + totalCount)
         $p = $('<p>').addClass('p2').attr('id', 'countoutput').text(totalCount)
         // 產生 div 的 jQuery 物件在變數 $div
         $div = $('<div>').addClass('col')
@@ -101,8 +99,6 @@ var newPoker = (i) => {
             // 目前牌是蓋著，要執行翻牌動作
             $poker.attr('data-back', false)
             let r = poker1_g[i]
-            //let r = $poker.attr('data-poker') // get the number 
-            //r = Number(r)
             $poker.attr('src', './poker/pic' + (poker1_g[i] + 1) + '.png')
         } else {
             // 目前牌是打開的，要執行蓋牌的動作
@@ -126,10 +122,8 @@ $(() => {
         $('#open1').on('click', () => {
 
             for (let i = 0; i < cardnumber1; i++) {
-                //var temp = '#' + i
                 // 產生 div 的 jQuery 物件在變數 $div
                 var temp = $('#' + i).attr("data-poker")
-                //console.log(temp)
                 $('#' + i).attr('src', './poker/pic' + (poker1_g[i] + 1) + '.png')
                 $('#' + i).attr('data-back', false)
             }
@@ -140,7 +134,6 @@ $(() => {
 //蓋牌
 $(() => {
     $('#close1').on('click', () => {
-
         for (let i = 0; i < cardnumber1; i++) {
             // 產生 div 的 jQuery 物件在變數 $div
             $('#' + i).attr('src', './poker/back.png')
@@ -158,6 +151,7 @@ $(() => {
 
                 //計算總點數
                 count(poker1_g[0], 1)
+                console.log("step:1" + poker1_g[0])
 
                 // add card to 牌桌
                 let $img = $('<img>').attr('src', './poker/back.png')
@@ -165,17 +159,23 @@ $(() => {
                 $div = $('<div>').addClass('col').addClass('poker')
                 // 將 $img 插入到 $div 內
                 $div.append($img)
-                //totalCount = totalCount + (poker1_g[0] + 1)
                 // 將 $div 插入到網頁 id=data 的html element 裡面
                 $('#table').append($img)
-                turnindex = 2
+                console.log("step:2" + poker1_g[0])
 
+                //換玩家
+                turnindex = 2
                 // show who is the next
-                // empty turn expression
                 $('#turndiv').empty();
                 let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家2")
                 $('#turndiv').append($p1)
+                console.log("step:3" + poker1_g[0])
 
+                /*
+                if (addindex > 51) {
+                    addindex = 10
+                }
+                */
                 //加牌
                 poker1_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
                 let temp = poker1_g[0]
@@ -183,17 +183,17 @@ $(() => {
                 $('data1.first').attr('data-poker', temp)
                 $('#0').attr('data-back', true)
                 $('#0').attr('src', './poker/back.png')
-                //console.log(temp)
+                console.log("step:4" + poker1_g[0])
 
                 console.log("addindex:" + addindex)
                 //更新poker以利洗牌
+                console.log("poker[addindex]:" + poker[addindex])
                 let temp1 = poker[addindex];
                 poker[addindex] = poker[0];
                 poker[0] = temp1;
-                //console.log("save")
+                console.log("step:5" + poker1_g[0])
 
                 addindex++;
-                //console.log(addindex)
                 //重新洗牌
                 if (addindex > 51) {
                     addindex = 10
@@ -201,6 +201,7 @@ $(() => {
                     $('#table').empty();
                     wash()
                 }
+                console.log("step:6" + poker1_g[0])
 
                 return addindex, poker1_g, poker
 
@@ -217,16 +218,18 @@ $(() => {
                 $div = $('<div>').addClass('col').addClass('poker')
                 // 將 $img 插入到 $div 內
                 $div.append($img)
-                //totalCount = totalCount + (poker1_g[1] + 1)
                 // 將 $div 插入到網頁 id=data 的html element 裡面
                 $('#table').append($img)
-                turnindex = 2
 
+                turnindex = 2
                 //empty turn expression
                 $('#turndiv').empty();
                 let $p2 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家2")
                 $('#turndiv').append($p2)
 
+                if (addindex > 51) {
+                    addindex = 10
+                }
                 //加牌
                 poker1_g.splice(1, 1, poker[addindex])//(index1, index2, insert item)
                 let temp = poker1_g[1]
@@ -234,19 +237,18 @@ $(() => {
                 $('data1.first').attr('data-poker', temp)
                 $('#1').attr('data-back', true)
                 $('#1').attr('src', './poker/back.png')
-                //console.log(temp)
 
                 //更新poker以利洗牌
                 let temp1 = poker[addindex];
                 poker[addindex] = poker[1];
-                poker[1] = temp1;;
-
+                poker[1] = temp1;
                 //重新洗牌
                 if (addindex > 51) {
                     addindex = 10
                     $('#table').empty();
                     wash()
                 }
+
                 addindex++;
                 return addindex, poker1_g, poker
 
@@ -263,7 +265,6 @@ $(() => {
                 $div = $('<div>').addClass('col').addClass('poker')
                 // 將 $img 插入到 $div 內
                 $div.append($img)
-                //totalCount = totalCount + (poker1_g[2] + 1)
                 // 將 $div 插入到網頁 id=data 的html element 裡面
                 $('#table').append($img)
                 turnindex = 2
@@ -273,6 +274,9 @@ $(() => {
                 let $p3 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家2")
                 $('#turndiv').append($p3)
 
+                if (addindex > 51) {
+                    addindex = 10
+                }
                 //加牌
                 poker1_g.splice(2, 1, poker[addindex])//(index1, index2, insert item)
                 let temp = poker1_g[2]
@@ -280,19 +284,18 @@ $(() => {
                 $('data1.first').attr('data-poker', temp)
                 $('#2').attr('data-back', true)
                 $('#2').attr('src', './poker/back.png')
-                //console.log(temp)
 
                 //更新poker以利洗牌
                 let temp1 = poker[addindex];
                 poker[addindex] = poker[2];
-                poker[2] = temp1;;
-
+                poker[2] = temp1;
                 //重新洗牌
                 if (addindex > 51) {
                     addindex = 10
                     $('#table').empty();
                     wash()
                 }
+
                 addindex++;
                 return addindex, poker1_g, poker
 
@@ -309,7 +312,6 @@ $(() => {
                 $div = $('<div>').addClass('col').addClass('poker')
                 // 將 $img 插入到 $div 內
                 $div.append($img)
-                //totalCount = totalCount + (poker1_g[3] + 1)
                 // 將 $div 插入到網頁 id=data 的html element 裡面
                 $('#table').append($img)
                 turnindex = 2
@@ -319,6 +321,9 @@ $(() => {
                 let $p4 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家2")
                 $('#turndiv').append($p4)
 
+                if (addindex > 51) {
+                    addindex = 10
+                }
                 //加牌
                 poker1_g.splice(3, 1, poker[addindex])//(index1, index2, insert item)
                 let temp = poker1_g[3]
@@ -326,19 +331,18 @@ $(() => {
                 $('data1.first').attr('data-poker', temp)
                 $('#3').attr('data-back', true)
                 $('#3').attr('src', './poker/back.png')
-                //console.log(temp)
 
                 //更新poker以利洗牌
                 let temp1 = poker[addindex];
                 poker[addindex] = poker[3];
-                poker[3] = temp1;;
-
+                poker[3] = temp1;
                 //重新洗牌
                 if (addindex > 51) {
                     addindex = 10
                     $('#table').empty();
                     wash()
                 }
+
                 addindex++;
                 return addindex, poker1_g, poker
 
@@ -355,7 +359,6 @@ $(() => {
                 $div = $('<div>').addClass('col').addClass('poker')
                 // 將 $img 插入到 $div 內
                 $div.append($img)
-                //totalCount = totalCount + (poker1_g[4] + 1)
                 // 將 $div 插入到網頁 id=data 的html element 裡面
                 $('#table').append($img)
                 turnindex = 2
@@ -365,6 +368,9 @@ $(() => {
                 let $p5 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家2")
                 $('#turndiv').append($p5)
 
+                if (addindex > 51) {
+                    addindex = 10
+                }
                 //加牌
                 poker1_g.splice(4, 1, poker[addindex])//(index1, index2, insert item)
                 let temp = poker1_g[4]
@@ -372,19 +378,19 @@ $(() => {
                 $('data1.first').attr('data-poker', temp)
                 $('#4').attr('data-back', true)
                 $('#4').attr('src', './poker/back.png')
-                //console.log(temp)
+
 
                 //更新poker以利洗牌
                 let temp1 = poker[addindex];
                 poker[addindex] = poker[4];
-                poker[4] = temp1;;
-
+                poker[4] = temp1;
                 //重新洗牌
                 if (addindex > 51) {
                     addindex = 10
                     $('#table').empty();
                     wash()
                 }
+
                 addindex++;
                 return addindex, poker1_g, poker
             }
@@ -527,10 +533,10 @@ $(() => {
 //出牌
 $(() => {
     //if (start == 0) {
-    console.log("turnindex:" + turnindex)
+    //console.log("turnindex:" + turnindex)
     $('#16').on('click', () => {
         if (turnindex == 2) {
-            console.log("#16")
+
             //計算總點數
             count(poker2_g[0], 2)
 
@@ -539,7 +545,6 @@ $(() => {
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             $div.append($img)
-            //totalCount = totalCount + (poker2_g[0] + 1)
             // 將 $div 插入到網頁 id=data 的html element 裡面
             $('#table').append($img)
             turnindex = 1
@@ -549,27 +554,28 @@ $(() => {
             let $p6 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
             $('#turndiv').append($p6)
 
+            if (addindex > 51) {
+                addindex = 10
+            }
             //加牌
             poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[0]
             temp = Number(temp)
-
             $('data2.first').attr('data-poker', temp)
             $('#60').attr('data-back', true)
             $('#60').attr('src', './poker/back.png')
-            // console.log(temp)
 
             //更新poker以利洗牌
             let temp1 = poker[addindex];
             poker[addindex] = poker[5];
-            poker[5] = temp1;;
-
+            poker[5] = temp1;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
                 $('#table').empty();
                 wash()
             }
+
             addindex++;
             return addindex, poker2_g, poker
         }
@@ -585,7 +591,6 @@ $(() => {
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             $div.append($img)
-            //totalCount = totalCount + (poker2_g[1] + 1)
             // 將 $div 插入到網頁 id=data 的html element 裡面
             $('#table').append($img)
             turnindex = 1
@@ -595,6 +600,9 @@ $(() => {
             let $p7 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
             $('#turndiv').append($p7)
 
+            if (addindex > 51) {
+                addindex = 10
+            }
             //加牌
             poker2_g.splice(1, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[1]
@@ -602,19 +610,18 @@ $(() => {
             $('data2.first').attr('data-poker', temp)
             $('#61').attr('data-back', true)
             $('#61').attr('src', './poker/back.png')
-            //console.log(temp)
 
             //更新poker以利洗牌
             let temp1 = poker[addindex];
             poker[addindex] = poker[6];
-            poker[6] = temp1;;
-
+            poker[6] = temp1;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
                 $('#table').empty();
                 wash()
             }
+
             addindex++;
             return addindex, poker2_g, poker
         }
@@ -630,7 +637,6 @@ $(() => {
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             $div.append($img)
-            //totalCount = totalCount + (poker2_g[2] + 1)
             // 將 $div 插入到網頁 id=data 的html element 裡面
             $('#table').append($img)
             turnindex = 1
@@ -640,6 +646,9 @@ $(() => {
             let $p8 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
             $('#turndiv').append($p8)
 
+            if (addindex > 51) {
+                addindex = 10
+            }
             //加牌
             poker2_g.splice(2, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[2]
@@ -647,19 +656,18 @@ $(() => {
             $('data2.first').attr('data-poker', temp)
             $('#62').attr('data-back', true)
             $('#62').attr('src', './poker/back.png')
-            //console.log(temp)
 
             //更新poker以利洗牌
             let temp1 = poker[addindex];
             poker[addindex] = poker[7];
-            poker[7] = temp1;;
-
+            poker[7] = temp1;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
                 $('#table').empty();
                 wash()
             }
+
             addindex++;
             return addindex, poker2_g, poker
         }
@@ -675,7 +683,6 @@ $(() => {
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             $div.append($img)
-            //totalCount = totalCount + (poker2_g[3] + 1)
             // 將 $div 插入到網頁 id=data 的html element 裡面
             $('#table').append($img)
             turnindex = 1
@@ -685,6 +692,9 @@ $(() => {
             let $p9 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
             $('#turndiv').append($p9)
 
+            if (addindex > 51) {
+                addindex = 10
+            }
             //加牌
             poker2_g.splice(3, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[3]
@@ -692,19 +702,18 @@ $(() => {
             $('data2.first').attr('data-poker', temp)
             $('#63').attr('data-back', true)
             $('#63').attr('src', './poker/back.png')
-            //console.log(temp)
 
             //更新poker以利洗牌
             let temp1 = poker[addindex];
             poker[addindex] = poker[8];
-            poker[8] = temp1;;
-
+            poker[8] = temp1;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
                 $('#table').empty();
                 wash()
             }
+
             addindex++;
             return addindex, poker2_g, poker
         }
@@ -720,7 +729,6 @@ $(() => {
             $div = $('<div>').addClass('col').addClass('poker')
             // 將 $img 插入到 $div 內
             $div.append($img)
-            //totalCount = totalCount + (poker2_g[4] + 1)
             $('#countoutput').empty()
             let $p = $('<p>').attr('id', 'count')
             $p.text(totalCount + '')
@@ -734,6 +742,9 @@ $(() => {
             let $p10 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
             $('#turndiv').append($p10)
 
+            if (addindex > 51) {
+                addindex = 10
+            }
             //加牌
             poker2_g.splice(4, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[4]
@@ -741,19 +752,18 @@ $(() => {
             $('data2.first').attr('data-poker', temp)
             $('#64').attr('data-back', true)
             $('#64').attr('src', './poker/back.png')
-            //console.log(temp)
 
             //更新poker以利洗牌
             let temp1 = poker[addindex];
             poker[addindex] = poker[9];
-            poker[9] = temp1;;
-
+            poker[9] = temp1;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
                 $('#table').empty();
                 wash()
             }
+
             addindex++;
             return addindex, poker2_g, poker
         }
@@ -1083,8 +1093,8 @@ var wash = () => {
             poker[10] = temp
         }
     }
-    poker.splice(0, 1, poker[53])
-    poker.splice(52, 2,)
+    //poker.splice(0, 1, poker[53])
+    //poker.splice(52, 2,)
 
     for (let i = 0; i < 5; i++) {
         poker1_g[i] = poker[i]
