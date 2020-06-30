@@ -539,7 +539,9 @@ $(() => {
 
             //計算總點數
             count(poker2_g[0], 2)
+            console.log("step:1" + poker2_g[0])
 
+            // add card to 牌桌
             let $img = $('<img>').attr('src', './poker/back.png')
             $img.attr('src', './poker/pic' + (poker2_g[0] + 1) + '.png')
             $div = $('<div>').addClass('col').addClass('poker')
@@ -547,16 +549,21 @@ $(() => {
             $div.append($img)
             // 將 $div 插入到網頁 id=data 的html element 裡面
             $('#table').append($img)
+            console.log("step:2" + poker2_g[0])
+
+            //換玩家
             turnindex = 1
-
-            //empty turn expression
+            // show who is the next
             $('#turndiv').empty();
-            let $p6 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
-            $('#turndiv').append($p6)
+            let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
+            $('#turndiv').append($p1)
+            console.log("step:3" + poker2_g[0])
 
+            /*
             if (addindex > 51) {
                 addindex = 10
             }
+            */
             //加牌
             poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
             let temp = poker2_g[0]
@@ -564,25 +571,89 @@ $(() => {
             $('data2.first').attr('data-poker', temp)
             $('#60').attr('data-back', true)
             $('#60').attr('src', './poker/back.png')
+            console.log("step:4" + poker2_g[0])
 
+            console.log("addindex:" + addindex)
             //更新poker以利洗牌
+            console.log("poker[addindex]:" + poker[addindex])
             let temp1 = poker[addindex];
-            poker[addindex] = poker[5];
-            poker[5] = temp1;
+            poker[addindex] = poker[0];
+            poker[0] = temp1;
+            console.log("step:5" + poker2_g[0])
+
+            addindex++;
             //重新洗牌
             if (addindex > 51) {
                 addindex = 10
+                //console.log("addindex > 51")
                 $('#table').empty();
                 wash()
             }
+            console.log("step:6" + poker2_g[0])
 
-            addindex++;
             return addindex, poker2_g, poker
         }
     })
     $('#17').on('click', () => {
         if (turnindex == 2) {
 
+            //計算總點數
+            count(poker2_g[1], 2)
+            console.log("step:1" + poker2_g[1])
+
+            // add card to 牌桌
+            let $img = $('<img>').attr('src', './poker/back.png')
+            $img.attr('src', './poker/pic' + (poker2_g[1] + 1) + '.png')
+            $div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            $div.append($img)
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            $('#table').append($img)
+            console.log("step:2" + poker2_g[1])
+
+            //換玩家
+            turnindex = 1
+            // show who is the next
+            $('#turndiv').empty();
+            let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
+            $('#turndiv').append($p1)
+            console.log("step:3" + poker2_g[1])
+
+            /*
+            if (addindex > 51) {
+                addindex = 10
+            }
+            */
+            //加牌
+            poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
+            let temp = poker2_g[1]
+            temp = Number(temp)
+            $('data2.first').attr('data-poker', temp)
+            $('#61').attr('data-back', true)
+            $('#61').attr('src', './poker/back.png')
+            console.log("step:4" + poker2_g[1])
+
+            console.log("addindex:" + addindex)
+            //更新poker以利洗牌
+            console.log("poker[addindex]:" + poker[addindex])
+            let temp1 = poker[addindex];
+            poker[addindex] = poker[1];
+            poker[1] = temp1;
+            console.log("step:5" + poker2_g[1])
+
+            addindex++;
+            //重新洗牌
+            if (addindex > 51) {
+                addindex = 10
+                //console.log("addindex > 51")
+                $('#table').empty();
+                wash()
+            }
+            console.log("step:6" + poker2_g[1])
+
+            return addindex, poker2_g, poker
+
+            /*
             //計算總點數
             count(poker2_g[1], 2)
 
@@ -624,11 +695,69 @@ $(() => {
 
             addindex++;
             return addindex, poker2_g, poker
+            */
         }
     })
     $('#18').on('click', () => {
         if (turnindex == 2) {
 
+            //計算總點數
+            count(poker2_g[2], 2)
+            console.log("step:1" + poker2_g[2])
+
+            // add card to 牌桌
+            let $img = $('<img>').attr('src', './poker/back.png')
+            $img.attr('src', './poker/pic' + (poker2_g[2] + 1) + '.png')
+            $div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            $div.append($img)
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            $('#table').append($img)
+            console.log("step:2" + poker2_g[2])
+
+            //換玩家
+            turnindex = 1
+            // show who is the next
+            $('#turndiv').empty();
+            let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
+            $('#turndiv').append($p1)
+            console.log("step:3" + poker2_g[2])
+
+            /*
+            if (addindex > 51) {
+                addindex = 10
+            }
+            */
+            //加牌
+            poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
+            let temp = poker2_g[2]
+            temp = Number(temp)
+            $('data2.first').attr('data-poker', temp)
+            $('#62').attr('data-back', true)
+            $('#62').attr('src', './poker/back.png')
+            console.log("step:4" + poker2_g[2])
+
+            console.log("addindex:" + addindex)
+            //更新poker以利洗牌
+            console.log("poker[addindex]:" + poker[addindex])
+            let temp1 = poker[addindex];
+            poker[addindex] = poker[2];
+            poker[2] = temp1;
+            console.log("step:5" + poker2_g[2])
+
+            addindex++;
+            //重新洗牌
+            if (addindex > 51) {
+                addindex = 10
+                //console.log("addindex > 51")
+                $('#table').empty();
+                wash()
+            }
+            console.log("step:6" + poker2_g[2])
+
+            return addindex, poker2_g, poker
+
+            /*
             //計算總點數
             count(poker2_g[2], 2)
 
@@ -670,11 +799,69 @@ $(() => {
 
             addindex++;
             return addindex, poker2_g, poker
+            */
         }
     })
     $('#19').on('click', () => {
         if (turnindex == 2) {
 
+            //計算總點數
+            count(poker2_g[3], 2)
+            console.log("step:1" + poker2_g[3])
+
+            // add card to 牌桌
+            let $img = $('<img>').attr('src', './poker/back.png')
+            $img.attr('src', './poker/pic' + (poker2_g[3] + 1) + '.png')
+            $div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            $div.append($img)
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            $('#table').append($img)
+            console.log("step:2" + poker2_g[3])
+
+            //換玩家
+            turnindex = 1
+            // show who is the next
+            $('#turndiv').empty();
+            let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
+            $('#turndiv').append($p1)
+            console.log("step:3" + poker2_g[3])
+
+            /*
+            if (addindex > 51) {
+                addindex = 10
+            }
+            */
+            //加牌
+            poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
+            let temp = poker2_g[3]
+            temp = Number(temp)
+            $('data2.first').attr('data-poker', temp)
+            $('#63').attr('data-back', true)
+            $('#63').attr('src', './poker/back.png')
+            console.log("step:4" + poker2_g[3])
+
+            console.log("addindex:" + addindex)
+            //更新poker以利洗牌
+            console.log("poker[addindex]:" + poker[addindex])
+            let temp1 = poker[addindex];
+            poker[addindex] = poker[3];
+            poker[3] = temp1;
+            console.log("step:5" + poker2_g[3])
+
+            addindex++;
+            //重新洗牌
+            if (addindex > 51) {
+                addindex = 10
+                //console.log("addindex > 51")
+                $('#table').empty();
+                wash()
+            }
+            console.log("step:6" + poker2_g[3])
+
+            return addindex, poker2_g, poker
+
+            /*
             //計算總點數
             count(poker2_g[3], 2)
 
@@ -716,11 +903,67 @@ $(() => {
 
             addindex++;
             return addindex, poker2_g, poker
+            */
         }
     })
     $('#20').on('click', () => {
         if (turnindex == 2) {
+            //計算總點數
+            count(poker2_g[4], 2)
+            console.log("step:1" + poker2_g[4])
 
+            // add card to 牌桌
+            let $img = $('<img>').attr('src', './poker/back.png')
+            $img.attr('src', './poker/pic' + (poker2_g[4] + 1) + '.png')
+            $div = $('<div>').addClass('col').addClass('poker')
+            // 將 $img 插入到 $div 內
+            $div.append($img)
+            // 將 $div 插入到網頁 id=data 的html element 裡面
+            $('#table').append($img)
+            console.log("step:2" + poker2_g[4])
+
+            //換玩家
+            turnindex = 1
+            // show who is the next
+            $('#turndiv').empty();
+            let $p1 = $('<p>').addClass('p3').attr('id', 'turn').text("玩家1")
+            $('#turndiv').append($p1)
+            console.log("step:3" + poker2_g[4])
+
+            /*
+            if (addindex > 51) {
+                addindex = 10
+            }
+            */
+            //加牌
+            poker2_g.splice(0, 1, poker[addindex])//(index1, index2, insert item)
+            let temp = poker2_g[4]
+            temp = Number(temp)
+            $('data2.first').attr('data-poker', temp)
+            $('#60').attr('data-back', true)
+            $('#60').attr('src', './poker/back.png')
+            console.log("step:4" + poker2_g[4])
+
+            console.log("addindex:" + addindex)
+            //更新poker以利洗牌
+            console.log("poker[addindex]:" + poker[addindex])
+            let temp1 = poker[addindex];
+            poker[addindex] = poker[4];
+            poker[4] = temp1;
+            console.log("step:5" + poker2_g[4])
+
+            addindex++;
+            //重新洗牌
+            if (addindex > 51) {
+                addindex = 10
+                //console.log("addindex > 51")
+                $('#table').empty();
+                wash()
+            }
+            console.log("step:6" + poker2_g[4])
+
+            return addindex, poker2_g, poker
+            /*
             //計算總點數
             count(poker2_g[4], 2)
 
@@ -766,6 +1009,7 @@ $(() => {
 
             addindex++;
             return addindex, poker2_g, poker
+            */
         }
     })
     //}
