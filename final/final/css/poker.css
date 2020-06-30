@@ -1,0 +1,163 @@
+/* hover reaction */
+img:hover {
+    box-shadow: 2px 2px 4px #606060;
+    cursor: pointer;
+    transform: translate(-3px, -3px);
+    transition-duration: 0.5s;
+}
+
+button:hover {
+    box-shadow: 2px 2px 4px #606060;
+    cursor: pointer;
+    transform: translate(-3px, -3px);
+    transition-duration: 0.2s;
+}
+
+/* title font style */
+h1{
+    font-size: 250%;
+    letter-spacing: 0.3em;
+    text-align: center;
+    font-style: italic;
+    text-shadow: 4px 4px 10px gray;
+}
+
+/* footer style */
+footer {
+    background: rgba(240, 143, 175, 0.712); 
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin: 0;
+}
+
+/* button style */
+button{
+    width:100px;
+    height:40px;
+    font-size:20px;
+}
+
+/* font style */
+p{
+    font-family: cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* font style */
+.p2{
+    font-family: cursive;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+/* font style */
+.p3{
+    font-family: cursive;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* background */
+.container{
+    background-color: rgb(252, 240, 240);
+}
+
+/* block to adjust location*/
+.block{
+    width:400px;
+}
+
+.block2{
+    width:80px;
+}
+
+.block3{
+    width:auto;
+}
+
+.block4{
+    width:100px;
+}
+
+/* row block */
+.rowblock{
+    height:20px;
+}
+
+/* block for 出牌 */
+.ecol{
+    margin:auto;
+}
+
+/* for player title creation */
+.player{
+    background-color:rgba(243, 96, 96, 0.844);
+    border-radius: 20em;
+}
+
+/* poker img col */
+.poker {
+    text-align: center;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #fd6ec6;
+    border-radius: 5px;
+     border-style: none;
+    /* border-color: #000; */
+    /* border-width: 1px; */
+    padding: 5px;
+    margin: 5px;
+    box-shadow: inset -2px -2px 4px #595959;
+}
+
+.rule{
+    text-align: left;
+    line-height: 28px
+}
+
+/* title background */
+#titleblock {
+    border-radius: 20em;
+    background-color:rgba(255, 185, 228, 0.844);
+    background-size: cover;
+    background-image: url(../img/blood.png);
+    /*border-style: groove;
+    border-width: 20 px;
+    border-color: rgba(243, 96, 96, 0.844);
+    */
+}
+
+/* 發牌、重新洗牌 */
+#button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* turn display */
+#turn{
+    color:red;
+}
+
+/* card display */
+#data1 {
+    margin-bottom: 50px;
+    margin-top: 20px; 
+}
+
+#data2 {
+    margin-bottom: 50px;
+    margin-top: 20px; 
+}
+
+/* 牌桌 */
+#table{
+    table-layout: fixed;
+}
+
+#result{
+    color: red;
+}

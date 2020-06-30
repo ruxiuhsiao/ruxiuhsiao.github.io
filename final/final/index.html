@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- 引用自已定義的CSS -->
+    <link rel="stylesheet" href="./css/poker.css">
+    <!--title for page-->
+    <title>血腥99</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Geostar&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- formatted title in site the page -->
+        <div class="row">
+            <div class="col">
+                <div class="jumbotron" id="titleblock">
+
+                    <h1 class="display-4" id="titlefont">
+                        <b><i>血腥99</i></b>
+                    </h1>
+
+                </div>
+            </div>
+        </div>
+
+        <!--block for 遊戲規則-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>遊戲規則</p>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="p2 rule">
+                        <b>規則一</b>：
+                        <br>每人有5張手牌，每次出牌一張後可以再抽一張新牌
+                    </p>
+                    <p class="p2 rule">
+                        <b>規則二</b>：
+                        <br><b>4、5、10、J、Q、K、黑桃A</b>為特殊牌，4、5表示回到上一個玩家出牌；紅色的10、 Q分別表示減10、20；
+                        黑色10、Q分別表示加10、20，J表示略過;Ｋ表示將點數加到99；黑桃A表示歸零。
+                    </p>
+                    <p class="p2 rule">
+                        <b>規則三</b>：
+                        <br>當出牌後點數超過<b>99</b>時即為輸家。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--block for 發牌-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col block2" id="button">
+                    <button id="main1" type="button" class="btn btn-primary">發牌</button>
+                </div>
+                <div class="col"></div>
+            </div>
+            <!--洗牌-->
+            <!--
+            <div class="row">
+                <div class="col block"></div>
+                <div class="col block" id="button">
+                    <button id="wash" type="button" class="btn btn-primary">重新洗牌</button>
+                </div>
+                <div class="col block"></div>
+            </div>
+            -->
+        </div>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>現在輪到：</p>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row">
+                <div class="col" id="turndiv">
+                    <p class="p3" id="turn">玩家1</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 玩家1 -->
+        <!-- 玩家1 -->
+        <!-- 玩家1 -->
+        <!-- 玩家1 -->
+        <!-- 玩家1 -->
+        <!--block for title、button for 開牌、蓋牌-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col block"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>玩家1</p>
+                    </div>
+                    <form>
+                        <div class="form-group row">
+
+                            <div class="col block2">
+                                <button id="open1" type="button" class="btn btn-primary">開牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="close1" type="button" class="btn btn-primary">蓋牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="lose1" type="button" class="btn btn-primary">認輸</button>
+                            </div>
+                            <!--
+                            <div class="col block2">
+                                <button id="add1" type="button" class="btn btn-primary">加牌</button>
+                            </div>
+                            -->
+                        </div>
+                    </form>
+                </div>
+                <div class="col block"></div>
+            </div>
+        </div>
+        <!-- 產生 撲克牌 的區塊-->
+        <div class="row" id="data1"></div>
+
+        <!--button for 出牌-->
+        <div class="row container-fluid" id="data11">
+            <div class="ecol block4">
+
+            </div>
+            <div class="col-lg ecol">
+                <button id="11" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="12" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="13" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="14" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="15" type="button" class="btn btn-primary">出牌</button>
+            </div>
+
+        </div>
+
+        <!--  block -->
+        <div class="container-fluid">
+            <div class="row rowblock">
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <!-- 玩家2 -->
+        <!-- 玩家2 -->
+        <!-- 玩家2 -->
+        <!-- 玩家2 -->
+        <!-- 玩家2 -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col block"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>玩家2</p>
+                    </div>
+                    <form>
+                        <div class="form-group row">
+
+                            <div class="col block2">
+                                <button id="open2" type="button" class="btn btn-primary">開牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="close2" type="button" class="btn btn-primary">蓋牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="lose2" type="button" class="btn btn-primary">認輸</button>
+                            </div>
+                            <!--
+                            <div class="col block2">
+                                <button id="add2" type="button" class="btn btn-primary">加牌</button>
+                            </div>
+                            -->
+                        </div>
+                    </form>
+                </div>
+                <div class="col block"></div>
+            </div>
+        </div>
+
+        <!-- 產生 撲克牌 的區塊-->
+        <div class="row" id="data2"></div>
+
+        <div class="row container-fluid" id="data22">
+            <!--for balance the margin-->
+            <div class="ecol block4">
+            </div>
+
+            <div class="col-lg ecol">
+                <button id="16" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="17" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="18" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="19" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="20" type="button" class="btn btn-primary">出牌</button>
+            </div>
+
+        </div>
+
+        <div class="container-fluid">
+            <div class="row rowblock">
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <!-- 玩家3 -->
+        <!-- 玩家3 -->
+        <!-- 玩家3 -->
+        <!-- 玩家3 -->
+        <!-- 玩家3 -->
+        <!--block for title、button for 開牌、蓋牌-->
+        <!--
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col block"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>玩家3</p>
+                    </div>
+                    <form>
+                        <div class="form-group row">
+
+                            <div class="col block2">
+                                <button id="open3" type="button" class="btn btn-primary">開牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="close3" type="button" class="btn btn-primary">蓋牌</button>
+                            </div>
+                            <div class="col block2">
+                                <button id="lose3" type="button" class="btn btn-primary">認輸</button>
+                            </div>
+                           
+                        </div>
+                    </form>
+                </div>
+                <div class="col block"></div>
+            </div>
+        </div>
+    -->
+        <!-- 產生 撲克牌 的區塊-->
+        <!--    
+        <div class="row" id="data3"></div>
+    -->
+        <!--button for 出牌-->
+        <!--
+        <div class="row container-fluid" id="data11">
+            <div class="ecol block4">
+
+            </div>
+            <div class="col-lg ecol">
+                <button id="21" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="22" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="23" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="24" type="button" class="btn btn-primary">出牌</button>
+            </div>
+            <div class="col-lg ecol">
+                <button id="25" type="button" class="btn btn-primary">出牌</button>
+            </div>
+
+        </div>
+
+        <div class="container-fluid">
+            <div class="row rowblock">
+                <div class="col"></div>
+            </div>
+        </div>
+    -->
+
+        <!-- 出牌位置-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="player">
+                        <p>牌桌</p>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <div class="row" id="table"></div>
+            <!--撲克牌顯示位置-->
+            <div class="row">
+                <div class="col">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <p class="p2">目前點數：</p>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <!--display current number-->
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col" id="count">
+                            <p class="p2" id="countoutput">0</p>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                    <div class="row" id="countoutput">
+                        <div class="col"></div>
+                        <div class="col" id="result">
+                            <!--
+                            <p class="p2" id="resultoutput"></p>
+                            -->
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--置底說明-->
+        <div class="row">
+            <div class="col">
+                <footer>
+                    copyright &copy; 2020 前端程式設計 by RU-XIU HSIAO
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script> <!-- 引用自己寫的 js -->
+    <script src="./js/math.js"></script>
+    <script src="./js/poker.js"></script>
+</body>
+
+</html>
